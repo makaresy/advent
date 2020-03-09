@@ -4,6 +4,11 @@ require 'openssl'
 require 'date'
 require 'json'
 
+#require_relative 'Person'
+#require File.expand_path(File.dirname(__FILE__) + 'Person')
+#load 'Movie.rb'
+load 'Main.rb'
+load 'FileOpen.rb'
 =begin
 OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 I_KNOW_THAT_OPENSSL_VERIFY_PEER_EQUALS_VERIFY_NONE_IS_WRONG = nil
@@ -21,19 +26,24 @@ page = agent.get("https://adventofcode.com/2019/day/1/input")
 =end
 
 
-data_part1 = []
+
+
+fileopen = FileOpen.new
+fileopen.filename("input.txt")
+fileopen.WriteData
+fileopen.CalkData
+fileopen.prntdata
+
+
+
+=begin
+
 data_part2 = []
 ans = 0
 
 #----------------------------------------------------------------- 
 
-File.open("input.txt", "r") do |file|
-  
-  file.each_line { |x| data_part1.push(x.to_i / 3 - 2) }
- 
-end
 
-puts "ans part 2 day 1: " + data_part1.reduce(:+).to_s
 
 #-----------------------------------------------------------------
 
@@ -57,4 +67,9 @@ data_part2.each do |arr|
 end
 
 puts "ans part 2 day 1: " + ans.to_s
+
+=end
+
+
+
 
