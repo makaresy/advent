@@ -1,33 +1,21 @@
 class FileOpen
 
-		def filename(name)
+		def set_filename(name)
 
 				@my_file = name
-				@data_part1 
+				@data = []
 
 		end
 
-		def WriteData
+		def getData
 		
-				@data_part1 = File.open(@my_file, "r") 
-	
+		         File.open(@my_file, "r") do |review_file|
+                 review_file.each_line { |x| @data.push(x.to_i)}
+                 end
+
+
+				 return @data
 		end
-
-		def CalkData
-		
-				@ans = 0
-				@data_part1.each do |x| @ans += (x.to_i / 3 - 2) 
- 				end #do
-						
- 
-
-		end #CalkData
-
-		def prntdata
-
-				 puts @ans      
-		
-		end #prntdata
 
 end #FileOpen
 
