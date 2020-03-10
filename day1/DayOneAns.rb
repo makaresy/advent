@@ -8,7 +8,7 @@ class DayOneAns
 	
 			ans = 0
 			
-			@data_part1.each do |x| ans += (x.to_i / 3 - 2) 
+			@data_part1.each do |x| ans += (x / 3 - 2) 
 			end #do
 			return ans
     end
